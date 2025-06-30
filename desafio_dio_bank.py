@@ -44,11 +44,6 @@ while True:
             elif numero_saques >= LIMITE_SAQUES:
                 print("Operação falhou. Você atingiu o número máximo de 3 saques diários.")
 
-            # resta = saldo_atual - sacando_dinheiro
-            # print(f"Saque realizado com sucesso. O valor do saque foi R$ {sacando_dinheiro}")
-            # print(f"O saldo remanescente é R$ {resta}.")
-            # print(f"Limite de saques: {numero_saques}/3")
-
         elif saldo_atual < sacando_dinheiro:
             print("Não será possível sacar o dinheiro por falta de saldo")
         else:
@@ -64,18 +59,15 @@ while True:
 
 
     elif opcao == "e":
-        print("Extrato")
+        if not extrato_saques and not extrato_depositos:
+            print("Não foram realizados movimentações.")
+            #print(f"Lista de todos os saques {extrato_saques}")
+        else:
+            print(f"Lista de todos os saques {extrato_saques}")
+            print(f"Lista de todos os depositos {extrato_depositos}")
 
     elif opcao == "q":
         break
 
     else:
         print("Operação inválida, por favor selecione novamente a operação desejada.")
-
-"""
-Deposito - devem ser armazenados em um variavel e exibidos na operação de extrato.
-Saque - permitir 3 saques diarios com limite max de R$ 500,00 por saque. Exibir mensagem caso naõ tenha saldo.
-Devem sera armazenado e exibidos no extrato.
-Extrato - Deve listar todos os depositos e saque. No final deve exibir saldo atual. Se o extrato estiver em branco, 
-deve exibir a mensagem-> Não foram realizados movimentações.<- o valor deve ter formato R$ 1500.45
-"""
